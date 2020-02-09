@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
-# This sample demonstrates handling intents from an Alexa skill using the Alexa Skills Kit SDK for Python.
-# Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
-# session persistence, api calls, and more.
-# This sample is built using the handler classes approach in skill builder.
+# Program to implement a multiplayer categories game with alexa.
+# Coded by Jon Danford, Henry Stevenson, and Will Renner.
 import logging
 import ask_sdk_core.utils as ask_utils
 import random
@@ -15,7 +13,7 @@ from ask_sdk_core.handler_input import HandlerInput
 
 from ask_sdk_model import Response
 
-categories = "animals and blocks in minecraft."
+categories = "fruits, and blocks in minecraft."
 blockArray = ["stone", "granite", "grass", "dirt", "cobblestone", "oak wood plank", "spruce wood plank", "birch wood plank", "jungle wood plank", "acacia wood plank", "dark oak wood plank", "bedrock", "sand", "gravel", "gold ore", "iron ore", "coal ore", "oak wood", "spruce wood", "birch wood", "jungle wood", "oak leaves", "spruce leaves", "birch leaves", "jungle leaves", "sponge", "glass", "lapis ore", "lapis block", "sand stone", "note block", "piston", "sticky piston", "wool", "dispenser", "gold block", "iron block", "brick", "tee in tee", "bookshelf", "moss stone", "obsidian", "chest", "diamond block", "diamond ore", "crafting table", "furnace", "red stone ore", "snow", "ice", "cactus", "clay", "jukebox", "pumpkin", "nether rack", "soul sand", "glow stone", "stained glass", "stone bricks", "mushroom block", "melon block", "mycelium", "nether brick", "end stone", "red stone lamp", "emerald ore", "emerald block", "beacon", "red stone block", "quartz", "dropper", "hardened clay", "acacia leaves", "dark oak leaves", "acacia wood", "dark oak wood", "slime block", "sea lantern", "hay bale", "block of coal", "packed ice", "magma block", "bone block", "observer"]
 fruitArray = ["apple", "apricot", "avocado", "banana", "blackberry", "blueberry", "cantaloupe", "cherry", "clementine", "coconut", "cranberry", "date", "durian", "fig", "grapefruit", "grape", "guava", "honeydew melon", "plum", "kiwi", "lemon", "lime", "mandarin", "mango", "nectarine", "olive", "orange", "papaya", "passion fruit", "peach", "pear", "dragonfruit", "pineapple", "plantain", "plum", "pomegranate", "raspberry", "strawberry", "tangerine", "watermelon"]
 remainingValues = []
@@ -72,7 +70,7 @@ class YesPlayIntentHandler(AbstractRequestHandler):
         return (
             handler_input.response_builder
                 .speak(speak_output)
-                .ask("test test")
+                .ask(speak_output)
                 .response
         )
 
@@ -86,7 +84,7 @@ class NoPlayIntentHandler(AbstractRequestHandler):
         return (
             handler_input.response_builder
                 .speak(speak_output)
-                .ask("test test")
+                .ask(speak_output)
                 .response
         )
 
@@ -114,7 +112,7 @@ class PickCategoryIntentHandler(AbstractRequestHandler):
         return (
             handler_input.response_builder
                 .speak(speak_output)
-                .ask("add a reprompt if you want to keep the session open for the user to respond")
+                .ask(speak_output)
                 .response
         )
 
@@ -142,7 +140,7 @@ class BlockIntentHandler(AbstractRequestHandler):
         return (
             handler_input.response_builder
                 .speak(speak_output)
-                .ask("add a reprompt if you want to keep the session open for the user to respond")
+                .ask(speak_output)
                 .response
         )
 
@@ -171,7 +169,7 @@ class FruitIntentHandler(AbstractRequestHandler):
         return (
             handler_input.response_builder
                 .speak(speak_output)
-                .ask("add a reprompt if you want to keep the session open for the user to respond")
+                .ask(speak_output)
                 .response
         )
 
@@ -245,7 +243,7 @@ class IntentReflectorHandler(AbstractRequestHandler):
         return (
             handler_input.response_builder
                 .speak(speak_output)
-                .ask("add a reprompt if you want to keep the session open for the user to respond")
+                .ask(speak_output)
                 .response
         )
 
@@ -286,13 +284,7 @@ def reset():
     global eventName
     remainingValues.clear()
     roundCount = 1
-    eventName = "quiz"
-    
-'''
-resolved_value = get_resolved_value(
-            handler_input.request_envelope.request, "pet")
-            '''
-
+    eventName = "start"
 
 
 
